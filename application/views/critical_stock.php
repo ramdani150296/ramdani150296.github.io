@@ -19,6 +19,7 @@
             <div class="custom-control custom-checkbox mr-sm-2 ml-3">
                 <input type="checkbox" class="custom-control-input" value="true" id="fu" name="first_upload">
                 <label class="custom-control-label" for="fu">Upload Pertama</label>
+                <i class="fa fa-info-circle align-middle text-primary" role="button" id="infoUpload"></i>
             </div>
         </div>
     </div>
@@ -31,7 +32,7 @@
                     <thead class="thead-dark text-nowrap">
                         <tr>
                             <th>No.</th>
-                            <th>plant</th>
+                            <th>PLANT</th>
                             <th>NAMA AREA</th>
                             <th>STORAGE LOCATION</th>
                             <th>MATERIAL TYPE</th>
@@ -113,6 +114,7 @@
                         try {
                             var parseResponse = JSON.parse(e.target.response);
                                 if(parseResponse['status'] === 'Success'){
+                                    form.reset();
                                     loadDataTable();
                                     return swallPopUp(parseResponse['messages'], 'success');
                                 }
@@ -166,7 +168,7 @@
                 icon : iconVal
             })
         });
-        var loadDataTable =(function _loadDataTable(){
+        var loadDataTable = (function _loadDataTable(){
             $('#example1').DataTable({
                 scrollX : true,
                 info : true,
@@ -198,6 +200,16 @@
                 }  
             });
             return _loadDataTable;
+        }());
+        var uploadInformation = (function(){
+            $('#infoUpload').click(function(){
+                Swal.fire({
+                    icon : 'info',
+                    text : 'Centang pertama upload untuk membersihkan data yang ada pada database sebelum nya,' +
+                           ' Jika tidak dicentang maka data sebelum nya akan bertambah dengan data baru. atau centang' +
+                           ' Satu kali hanya pada saat file pertama di upload, jika memiliki file excel yang displit menjadi beberapa bagian' 
+                });
+            });
         }());
     });
 }());
