@@ -3,19 +3,23 @@ defined('BASEPATH')OR exit('No direct script access allowed');
 class Critical_stock extends CI_Controller
 {
 	public function __construct()
-		{
-				parent::__construct();
-				$this->load->model('critical_model');		
-		}
+	{
+		parent::__construct();
+		$this->load->model('critical_model');
+		$this->load->library('parser');		
+	}
 
 	public function index()
 	{
-		$data['tittle'] = 'Critical stock';
+		$data = [
+			'title' => 'Critical Stock',
+			'year' => date("Y")
+		];
 
-		$this->load->view('templates/header',$data);
-		$this->load->view('templates/sidebar',$data);
-		$this->load->view('critical_stock',$data);
-		$this->load->view('templates/footer');
+		$this->parser->parse('/templates/html_head', $data); // head 
+		$this->parser->parse('/templates/body_start_with_sidebar', $data); //body start tag
+		$this->parser->parse('critical_stock', $data); // main content
+		$this->parser->parse('/templates/body_end_with_sidebar', $data); //footer and body end tag
 	}
 
 	public function ajax_list()
@@ -70,15 +74,16 @@ class Critical_stock extends CI_Controller
 			$row[] = $cts->ket_mat_group;
 			$row[] = $cts->shelf_life_month;
 			$row[] = $cts->create_et;
-            $data[] = $row;
+			$data[] = $row;
         }
+
  
         $output = array(
-                        "draw" => $_POST['draw'],
-                        "recordsTotal" => $this->critical_model->count_all(),
-                        "recordsFiltered" => $this->critical_model->count_filtered(),
-                        "data" => $data,
-                );
+			"draw" => $_POST['draw'],
+			"recordsTotal" => $this->critical_model->count_all(),
+			"recordsFiltered" => $this->critical_model->count_filtered(),
+			"data" => $data,
+		);
         //output to json format
         echo json_encode($output);
     }
