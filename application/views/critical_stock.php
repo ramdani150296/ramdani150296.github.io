@@ -122,7 +122,7 @@
                         } catch (err) {
                             return swallPopUp(
                                 'Terjadi Kesalahan Gagal Melakukan Upload File,'+
-                                'Pastikan total baris excel tidak melebihi 20.000 baris' +
+                                'Pastikan total baris excel tidak melebihi 20.000 baris ' +
                                 'dan file yang di masukan hanya format XLSX', 'error'
                             );
                         }
