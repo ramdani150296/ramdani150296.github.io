@@ -27,8 +27,8 @@
     <div class="card-header">
         <div style="overflow:auto; width:100%;">
             <div class="card-body">
-                <table border="1" width="300px" id="example1" class="table table-hover" style="width:100%">
-                    <thead class="thead-dark">
+                <table border="1" id="example1" class="table table-striped table-hover table-sm small align-middle">
+                    <thead class="thead-dark text-nowrap">
                         <tr>
                             <th>No.</th>
                             <th>plant</th>
@@ -103,7 +103,6 @@
                 if(await swallUploadAlert()){
                     swallLoading();
                     this.onsubmit = null;
-                    console.log(e);
                     xhr.open('POST', '<?= base_url('Uploadcritical/import_excel'); ?>');
                     xhr.onerror = function(e) {
                         turnBackOnButton();
@@ -128,9 +127,7 @@
                     }
                     xhr.send(data);
                 }
-
             }
-
             return _doUpload;
         }());
         var swallUploadAlert = (function(){
@@ -171,25 +168,31 @@
         });
         var loadDataTable =(function _loadDataTable(){
             $('#example1').DataTable({
-                'scrollX': true,
-                'info': true,
-                'responsive': true,
-                "paging": true,
-                "bDestroy": true,
-                "processing": true, //Feature control the processing indicator.
-                "serverSide": true, //Feature control DataTables' server-side processing mode.
-                "order": [], //Initial no order.
-                "ajax": { // Load data for the table's content from an Ajax source
-                    "url": "<?php echo site_url('critical_stock/ajax_list') ?>",
-                    "type": "POST"
+                scrollX : true,
+                info : true,
+                responsive : true,
+                paging : true,
+                bDestroy : true,
+                processing : true, //Feature control the processing indicator.
+                serverSide : true, //Feature control DataTables' server-side processing mode.
+                ajax : { // Load data for the table's content from an Ajax source
+                    url : "<?php echo site_url('critical_stock/ajax_list') ?>",
+                    type : "POST"
                 },
-                "columnDefs": { //Set column definition initialisation properties.
-                    "targets": [ 0 ], //first column / numbering column
-                    "orderable": false, //set not orderable
-                },
-                'language': {
-                    'loadingRecords': '&nbsp;',
-                    'processing': '<div class="spinner-border text-primary" role="status">'+
+                columnDefs : [ //Set column definition initialisation properties.
+                    { 
+                        targets : 0,
+                        className : "text-center align-middle" 
+                    },
+                    { 
+                        targets : "_all",
+                        orderable : true,
+                        className : "align-middle" 
+                    }
+                ],
+                language : {
+                    loadingRecords : '&nbsp;',
+                    processing : '<div class="spinner-border text-primary" role="status">'+
                                     '<span class="sr-only">Loading...</span>'+
                                   '</div>'
                 }  
