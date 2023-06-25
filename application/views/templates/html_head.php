@@ -12,10 +12,12 @@
         <link rel="stylesheet" href="<?=base_url('assets/template')?>/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="<?=base_url('assets/template')?>/dist/css/adminlte.min.css">
         <link rel="stylesheet" href="<?=base_url('assets/template')?>/plugins/sweetalert2/sweetalert2.css">
+        <link rel="stylesheet" href="<?=base_url('assets/template')?>/plugins/chart.js/Chart.css">
     
         <script src="<?=base_url('assets/template')?>/plugins/jquery/jquery.min.js"></script>
         <script src="<?=base_url('assets/template')?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="<?=base_url('assets/template')?>/plugins/sweetalert2/sweetalert2.all.js"></script>
         <script src="<?=base_url('assets/template')?>/plugins/datatables/jquery.dataTables.js"></script>
         <script src="<?=base_url('assets/template')?>/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <script src="<?=base_url('assets/template')?>/plugins/chart.js/Chart.js"></script>
     </head><!-- berlanjut pada file body start with sidebar-->

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Jumlah_Model extends CI_Model {
+class JumlahModel extends CI_Model {
     public function hitungan_critical_stock()
         {
             $this->db->select('*');
@@ -27,4 +27,9 @@ class Jumlah_Model extends CI_Model {
         {
             return $this->db->get($table);
         }
+        public function graph()
+    {
+        $data = $this->db->query("SELECT * from tbl_critical_stock");
+        return $data->result();
+    }
 }

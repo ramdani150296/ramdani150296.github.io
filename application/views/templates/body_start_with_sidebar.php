@@ -59,13 +59,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('critical_stock') ?>" class="nav-link active">
+                                    <a href="<?= base_url('CriticalStockController') ?>" class="nav-link active">
                                         <i class="fa-solid fa-box"></i>
                                         <p>Critical stock</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('monitoring_stock') ?>" class="nav-link">
+                                    <a href="<?= base_url('MonitoringStockController') ?>" class="nav-link">
                                         <i class="fa-solid fa-computer"></i>
                                         <p> Monitoring stock</p>
                                     </a>
@@ -84,13 +84,13 @@
 
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('akurasi_stock') ?>" class="nav-link active">
+                                    <a href="<?= base_url('AkurasiStockController') ?>" class="nav-link active">
                                         <i class="fa-solid fa-book"></i>
                                         <p>Akurasi Stock</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('perbandingan_stock') ?>" class="nav-link">
+                                    <a href="<?= base_url('PerbandinganStockController') ?>" class="nav-link">
                                         <i class="fa-solid fa-clipboard"></i>
                                         <p>Perbandingan Stock</p>
                                     </a>
@@ -111,19 +111,19 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link active">
                                         <i class="fa-solid fa-truck"></i>
-                                        <p>Report Daily</p>
+                                        <p>Gagal Kirim</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="SummaryDoController" class="nav-link">
                                         <i class="fa-solid fa-truck"></i>
-                                        <p>Report Month</p>
+                                        <p>Summary DO</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('users') ?>" href="#" class="nav-link ">
+                            <a href="<?= base_url('UsersController') ?>" href="#" class="nav-link ">
                                 <i class="fa-solid fa-user"></i>
                                 <p>
                                     User
@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('auth') ?>" href="#" class="nav-link ">
+                           <a onclick="logout()" href="#" class="nav-link ">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <p>
                                     Log out
@@ -161,5 +161,7 @@
                 </div>
             </div> -->
             <div class="content">
-                <div class="container-fluid" style="height:700px;"> <!-- berlanjut pada file footer body -->
+                <div class="container-fluid"> 
+                    <!-- container-fluid start -->
+                    <!-- berlanjut pada file footer body -->
                 

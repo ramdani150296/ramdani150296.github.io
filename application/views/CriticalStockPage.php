@@ -1,10 +1,10 @@
 <?= $this->session->flashdata('pesan'); ?>
 <h3 class="m-2 text-bold">
     <i class="nav-icon fas fa-box"></i>
-    Halaman Critical Stock
+    Halaman {title}
 </h3>
 <hr>
-<form action="<?= base_url('Uploadcritical/import_excel'); ?>" method="post" id="upload" enctype="multipart/form-data">
+<form action="<?= base_url('CriticalStockController/doInsertData'); ?>" method="post" id="upload" enctype="multipart/form-data">
     <div class="input-group mb-3">
         <div class="custom-file">
             <label for="file_input" class="mb-0 btn btn-primary mr-3">
@@ -28,7 +28,7 @@
     <div class="card-header">
         <div style="overflow:auto; width:100%;">
             <div class="card-body">
-                <table border="1" id="example1" class="table table-striped table-hover table-sm small align-middle">
+                <table border="1" id="criticalTable" class="table table-striped table-hover table-sm small align-middle">
                     <thead class="thead-dark text-nowrap">
                         <tr>
                             <th>No.</th>
@@ -83,7 +83,7 @@
     </div>
 </div>
 <script>
-(function(){
+    (function(){
     addEventListener('load', function(e){
         var doUpload = (function _doUpload() {
             console.log('asdasd');
@@ -104,7 +104,7 @@
                 if(await swallUploadAlert()){
                     swallLoading();
                     this.onsubmit = null;
-                    xhr.open('POST', '<?= base_url('Uploadcritical/import_excel'); ?>');
+                    xhr.open('POST', selfObject.action);
                     xhr.onerror = function(e) {
                         turnBackOnButton();
                         return swallPopUp('Upload Gagal, Periksa Jaringan Internet ' + e.target.status, 'error');
@@ -169,16 +169,17 @@
             })
         });
         var loadDataTable = (function _loadDataTable(){
-            $('#example1').DataTable({
+            var dtaTbl  = $('#criticalTable');
+            dtaTbl.DataTable({
                 scrollX : true,
-                info : true,
+                info : false,
                 responsive : true,
                 paging : true,
                 bDestroy : true,
                 processing : true, //Feature control the processing indicator.
                 serverSide : true, //Feature control DataTables' server-side processing mode.
                 ajax : { // Load data for the table's content from an Ajax source
-                    url : "<?php echo site_url('critical_stock/ajax_list') ?>",
+                    url : "<?php echo site_url('CriticalStockController/getAllData') ?>",
                     type : "POST"
                 },
                 columnDefs : [ //Set column definition initialisation properties.
@@ -189,15 +190,15 @@
                     { 
                         targets : "_all",
                         orderable : true,
-                        className : "align-middle" 
+                        className : "align-middle"
                     }
                 ],
                 language : {
                     loadingRecords : '&nbsp;',
                     processing : '<div class="spinner-border text-primary" role="status">'+
                                     '<span class="sr-only">Loading...</span>'+
-                                  '</div>'
-                }  
+                                    '</div>'
+                }
             });
             return _loadDataTable;
         }());
@@ -206,11 +207,11 @@
                 Swal.fire({
                     icon : 'info',
                     text : 'Centang pertama upload untuk membersihkan data yang ada pada database sebelum nya,' +
-                           ' Jika tidak dicentang maka data sebelum nya akan bertambah dengan data baru. atau centang' +
-                           ' Satu kali hanya pada saat file pertama di upload, jika memiliki file excel yang displit menjadi beberapa bagian' 
+                            ' Jika tidak dicentang maka data sebelum nya akan bertambah dengan data baru. atau centang' +
+                            ' Satu kali hanya pada saat file pertama di upload, jika memiliki file excel yang displit menjadi beberapa bagian' 
                 });
             });
         }());
-    });
-}());
+        });
+    }());
 </script>

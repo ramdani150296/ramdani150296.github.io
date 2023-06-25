@@ -156,7 +156,19 @@ CREATE TABLE `tbl_monitoring_stock` (
   `total_value` varchar(50) NOT NULL DEFAULT '0',
   `keterangan_ed` varchar(50) NOT NULL DEFAULT '0',
   `kategori_principal` varchar(50) NOT NULL DEFAULT '0',
-  `cut_off_stock` varchar(200) NOT NULL DEFAULT '0'
+  `cut_off_stock` varchar(200) NOT NULL DEFAULT '0',
+  `total_self_life` varchar(50) NOT NULL DEFAULT '0',
+  `mkt_category1` varchar(50) NOT NULL DEFAULT '0',
+  `standard_price` varchar(50) NOT NULL DEFAULT '0',
+  `time_to_expired` varchar(50) NOT NULL DEFAULT '0',
+  `shelf_life` varchar(50) NOT NULL DEFAULT '0',
+  `ket_self_life` varchar(50) NOT NULL DEFAULT '0',
+  `sisa_sled` varchar(50) NOT NULL DEFAULT '0',
+  `ket_mat_group` varchar(50) NOT NULL DEFAULT '0',
+  `status_inventory` varchar(50) NOT NULL DEFAULT '0',
+  `claim_no_claim` varchar(150) NOT NULL DEFAULT '0',
+  `sisa_total_shelf_life` varchar(250) NOT NULL DEFAULT '0',
+  `create_et` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
