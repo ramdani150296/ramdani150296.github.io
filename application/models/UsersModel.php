@@ -107,8 +107,8 @@ class UsersModel extends CI_Model
     }
 
     public function doDeleteUserById($id){
-        $this->db->delete($this->table);
         $this->db->where('id', $id);
+        $this->db->delete($this->table);
         return $this->findUserById($id);
     }
 }
