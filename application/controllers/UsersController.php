@@ -162,13 +162,17 @@ class UsersController extends CI_Controller {
     private function doDelete($id){
         $userCheck = $this->userExistsCheck($id);
         
-        if($userCheck === null){
-            if($this->UsersModel->doDeleteUserById($id) <= 0){
-                return '';
+        if($userCheck !== null){
+            return $userCheck;
+        }else{
+            if($this->session->userdata('id') === $id){
+                return 'User Sedang digunakan tidak dapat dihapus !';
+            }else{
+                if($this->UsersModel->doDeleteUserById($id) > 0){
+                    return 'Gagal Melakukan Delete User Dengan ID '.$id;
+                }
             }
-            return 'Gagal Melakukan Delet User Dengan ID '.$id;
         }
-        return $userCheck;
     }
 
     private function doUpdate(array $data){

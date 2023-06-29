@@ -41,7 +41,7 @@ class Auth extends CI_Controller {
 							'fullname'=>$user['fullname'],
 							'email'=>$user['email'],
 							'role_id'=>$user['role_id'],
-							'id' => md5(base64_encode($user['id']))
+							'id' => $user['id']
 						];
 						
 						$this->session->set_userdata($data);
