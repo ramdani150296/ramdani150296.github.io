@@ -10,7 +10,12 @@ class UsersController extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('UsersModel');
-        $this->load->library('parser');
+        $this->load->library('session');	
+		$this->load->library('parser');
+
+		if(!$this->session->userdata('email')){
+			return header('location:'.base_url('/auth'));
+	  }
     }
 
     public function index(){
@@ -96,37 +101,36 @@ class UsersController extends CI_Controller {
             $status = 'Success';
             $response = 'Upload Data Berhasil';
         }
-
         $jsonParse = (string) json_encode(['status' => $status,  'messages' => $response]);
+
         return print($jsonParse);
     }
 
     public function getAllData(){
 
         $list = $this->UsersModel->getAllData();
-        $data = array();
-        $no = $_POST['start'];
+        $no = ($_POST['start']+1);
+        $data = [];
+
         foreach ($list as $cts) {
-            $no++;
-            $row = array();
-            $row[] = $no;
-            $row[] = $cts->fullname;
-            $row[] = $cts->email;
-            $row[] = $cts->role_id;
-            $row[] = $cts->is_active;
-            $row[] = $cts->reaction;
-            $row[] = date("d-m-Y H:i:s", $cts->date_created);
-            $row[] = $cts->id;
-            $data[] = $row;
+            $data[] = [
+                $no++,
+                $cts->fullname,
+                $cts->email,
+                $cts->role_id,
+                ($cts->is_active) ? 'Aktif' : 'Non Aktif',
+                date("d-m-Y H:i:s", $cts->date_created),
+                $cts->id
+            ];
         }
 
- 
         $output = array(
             "draw" => $_POST['draw'],
             "recordsTotal" => $this->UsersModel->countAllData(),
             "recordsFiltered" => $this->UsersModel->countFilteredData(),
             "data" => $data,
         );
+
         //output to json format
         echo json_encode($output);
     }
@@ -136,15 +140,13 @@ class UsersController extends CI_Controller {
         $status = "Error";
         $fullName = $_POST['fullName'];
         $email = $_POST['email'];
-        $idUsers = $_POST['id'];
+        $userId = $_POST['id'];
         $command = $_POST['command'];
         
         if($command === 'doUpdate'){
-            $response = 'gagal update'; // selalu gunakan variable ini ketika terjadi penanganan error update
-            // update disini
+            $response = $this->doUpdate(); 
         }else if($command === 'doDelete'){
-            // delete disini
-            $response = 'gagal delete'; // selalu gunakan variable ini ketika terjadi penanganan error update
+            $response = $this->doDelete($userId);
         }   
 
         header('Content-Type: application/json');
@@ -157,5 +159,26 @@ class UsersController extends CI_Controller {
         return print($jsonParse);
     }
 
+    private function doDelete($id){
+        $userCheck = $this->userExistsCheck($id);
+        
+        if($userCheck === null){
+            if($this->UsersModel->doDeleteUserById($id) <= 0){
+                return '';
+            }
+            return 'Gagal Melakukan Delet User Dengan ID '.$id;
+        }
+        return $userCheck;
+    }
+
+    private function doUpdate(array $data){
+        if($this->userExistsCheck($data['id']) === null){
+            
+        }
+    }
+
+    private function userExistsCheck($id){
+        return ($this->UsersModel->findUserById($id) <= 0) ? 'Pengguna Tidak Ditemukan !' : null; 
+    }
 }
 ?>

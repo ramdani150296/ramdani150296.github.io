@@ -6,11 +6,16 @@ use \PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use \PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 class CriticalStockController extends CI_Controller {
-	public function __construct()
-	{
+
+	public function __construct(){
 		parent::__construct();
 		$this->load->model('CriticalStockModel');
+		$this->load->library('session');	
 		$this->load->library('parser');
+
+		if(!$this->session->userdata('email')){
+			return header('location:'.base_url('/auth'));
+	  }
 	}
 
 	public function index(){
@@ -110,57 +115,57 @@ class CriticalStockController extends CI_Controller {
     public function getAllData(){
 
         $list = $this->CriticalStockModel->getAllData();
-        $data = array();
-        $no = $_POST['start'];
+        $no = ($_POST['start']+1);
+        $data = [];
+
         foreach ($list as $cts) {
-            $row = array();
             $shelfLife = (round($cts->shelf_life_present)*100)."%";
-            
-            $row[] = $no++;
-            $row[] = $cts->plant;
-            $row[] = $cts->nama_area;
-            $row[] = $cts->storage_location;
-            $row[] = $cts->material_type;
-            $row[] = $cts->material_group;
-            $row[] = $cts->material_group_desc;
-			$row[] = $cts->pack_size_old;
-			$row[] = $cts->material;
-			$row[] = $cts->material_description;
-			$row[] = $cts->batch;
-			$row[] = $cts->tanggal_ed;
-			$row[] = $cts->valution_tipe;
-			$row[] = $cts->gr_date;
-			$row[] = $cts->mkt_categori3;
-			$row[] = $cts->total_stock_bu;
-			$row[] = $cts->schedule_delivery_bu;
-			$row[] = $cts->available_stock_bu;
-			$row[] = $cts->base_unit;
-			$row[] = $cts->total_stock_ou;
-			$row[] = $cts->schedule_delivery_ou;
-			$row[] = $cts->available_stock_ou;
-			$row[] = $cts->order_unit;
-			$row[] = $cts->total_stock_su;
-			$row[] = $cts->schedule_delivery_su;
-			$row[] = $cts->available_su;
-			$row[] = $cts->sales_unit;
-			$row[] = $cts->shelf_life_product;
-			$row[] = $cts->periode_shelf_life;
-			$row[] = $cts->cut_off_stock;
-			$row[] = $cts->storage_condition;
-			$row[] = $cts->total_self_life;
-			$row[] = $cts->mkt_category1;
-			$row[] = $cts->standard_price;
-			$row[] = $cts->total_value;
-			$row[] = $cts->time_to_expired;
-			$row[] = $shelfLife;
-			$row[] = $cts->ket_self_life;
-			$row[] = $cts->kategori_principal;
-			$row[] = $cts->status_inventory;
-			$row[] = $cts->sisa_sled;
-			$row[] = $cts->ket_mat_group;
-			$row[] = $cts->shelf_life_month;
-			$row[] = $cts->create_et;
-			$data[] = $row;
+            $data[] = [
+                $no++,
+                $cts->plant,
+                $cts->nama_area,
+                $cts->storage_location,
+                $cts->material_type,
+                $cts->material_group,
+                $cts->material_group_desc,
+                $cts->pack_size_old,
+                $cts->material,
+                $cts->material_description,
+                $cts->batch,
+                $cts->tanggal_ed,
+                $cts->valution_tipe,
+                $cts->gr_date,
+                $cts->mkt_categori3,
+                $cts->total_stock_bu,
+                $cts->schedule_delivery_bu,
+                $cts->available_stock_bu,
+                $cts->base_unit,
+                $cts->total_stock_ou,
+                $cts->schedule_delivery_ou,
+                $cts->available_stock_ou,
+                $cts->order_unit,
+                $cts->total_stock_su,
+                $cts->schedule_delivery_su,
+                $cts->available_su,
+                $cts->sales_unit,
+                $cts->shelf_life_product,
+                $cts->periode_shelf_life,
+                $cts->cut_off_stock,
+                $cts->storage_condition,
+                $cts->total_self_life,
+                $cts->mkt_category1,
+                $cts->standard_price,
+                $cts->total_value,
+                $cts->time_to_expired,
+                $shelfLife,
+                $cts->ket_self_life,
+                $cts->kategori_principal,
+                $cts->status_inventory,
+                $cts->sisa_sled,
+                $cts->ket_mat_group,
+                $cts->shelf_life_month,
+                $cts->create_et
+            ];
         }
 
  
@@ -170,6 +175,7 @@ class CriticalStockController extends CI_Controller {
 			"recordsFiltered" => $this->CriticalStockModel->countFilteredData(),
 			"data" => $data,
 		);
+
         //output to json format
         echo json_encode($output);
     }

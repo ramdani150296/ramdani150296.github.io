@@ -10,7 +10,12 @@ class SummaryDoController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('SummaryDoModel');
+		$this->load->library('session');	
 		$this->load->library('parser');
+
+		if(!$this->session->userdata('email')){
+			return header('location:'.base_url('/auth'));
+	  }
 	}
 
 	public function index(){

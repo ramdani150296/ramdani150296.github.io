@@ -1,9 +1,11 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-        <nav class="main-header navbar navbar-expand navbar-dark Blue navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-dark blue navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        <i class="fas fa-bars"></i>
+                    </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
@@ -40,26 +42,26 @@
                 </div>
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item menu-open">
-                            <a href="<?= base_url('dashboard') ?>" class="nav-link active">
+                        <li class="nav-item">
+                            <a href="<?= base_url('dashboard') ?>" class="nav-link">
                                 <i class="fa-solid fa-chart-line"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
 
                         <br>
-                        <li class="nav-item menu-open">
+                        <li class="nav-item">
                             <a href="#" class="nav-link ">
-                                <!-- <i class="fa-solid fa-bars"></i> -->
+                                <i class="fa-solid fa-file-text"></i>
                                 <p>
                                     Report Stock
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">2</span>
+                                    <i class="fas fa-angle-right right"></i>
                                 </p>
+                                <!-- <span class="badge badge-info right">2</span> --> 
                             </a>
-                            <ul class="nav nav-treeview">
+                            <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('CriticalStockController') ?>" class="nav-link active">
+                                    <a href="<?= base_url('CriticalStockController') ?>" class="nav-link">
                                         <i class="fa-solid fa-box"></i>
                                         <p>Critical stock</p>
                                     </a>
@@ -72,19 +74,18 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item menu-open">
+                        <li class="nav-item">
                             <a href="#" class="nav-link ">
-                                <!-- <i class="fa-solid fa-bars"></i> -->
+                                <i class="fas fa-file-text"></i>
                                 <p>
                                     Report Warehouse
-                                    <i class="right fas fa-angle-left"></i>
-                                    <span class="badge badge-info right">2</span>
+                                    <i class="right fas fa-angle-right"></i>
+                                    <!-- <span class="badge badge-info right">2</span> -->
                                 </p>
                             </a>
-
-                            <ul class="nav nav-treeview">
+                            <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('AkurasiStockController') ?>" class="nav-link active">
+                                    <a href="<?= base_url('AkurasiStockController') ?>" class="nav-link<?php //echo $this->activeUriCheck('AkurasiStockController'); ?>">
                                         <i class="fa-solid fa-book"></i>
                                         <p>Akurasi Stock</p>
                                     </a>
@@ -97,19 +98,19 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link ">
-                                <!-- <i class="fa-solid fa-bars"></i> -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-file-text"></i>
                                 <p>
                                     Report Logistik
-                                    <i class="right fas fa-angle-left"></i>
-                                    <span class="badge badge-info right">2</span>
+                                    <i class="right fas fa-angle-right"></i>
+                                    <!-- <span class="badge badge-info right">2</span> -->
                                 </p>
                             </a>
 
-                            <ul class="nav nav-treeview">
+                            <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href="#" class="nav-link">
                                         <i class="fa-solid fa-truck"></i>
                                         <p>Gagal Kirim</p>
                                     </a>
@@ -123,7 +124,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('UsersController') ?>" href="#" class="nav-link ">
+                            <a href="<?= base_url('UsersController') ?>" href="#" class="nav-link">
                                 <i class="fa-solid fa-user"></i>
                                 <p>
                                     User
@@ -132,13 +133,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                           <a onclick="logout()" href="#" class="nav-link ">
+                           <div onclick="logout()" href="#" class="nav-link">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <p>
                                     Log out
                                     <span class="right badge badge-danger"></span>
                                 </p>
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -149,12 +150,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <li class="breadcrumb-item active">{title}</li>
+                            <li class="breadcrumb-item">{title}</li>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">{title}</li>
+                                <li class="breadcrumb-item">{title}</li>
                             </ol>
                         </div>
                     </div>

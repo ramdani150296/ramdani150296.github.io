@@ -25,7 +25,7 @@
                     type: 'question',
                 }).then((result) => {
                     if (result.value) {
-                        window.location = "<?=base_url('auth')?>";
+                        window.location = "<?php echo base_url('LogOutController'); ?>";
                     }
                 });
             }

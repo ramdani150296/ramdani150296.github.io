@@ -15,7 +15,6 @@
                             <th>EMAIL</th>
                             <th>ROLL ID</th>
                             <th>IS ACTIVE</th>
-                            <th>REACTION</th>
                             <th>CREAT ET</th>
                         </tr>
                     </thead>
@@ -209,8 +208,8 @@
                                         var actionCommand = (targetId === 'deleteMode') ? 'doDelete' : 'doUpdate';
 
                                         formData.append('command', actionCommand);
-                                        formData.append('id', data[7]); 
-
+                                        formData.append('id', data[6]); 
+                                        
                                         for(var i =0; i < fieldInput.length; i++){
                                             var objData = fieldInput[i];
                                             var nameField = objData.id;

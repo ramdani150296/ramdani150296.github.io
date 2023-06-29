@@ -11,6 +11,12 @@ class MonitoringStockController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('MonitoringStockModel');
 		$this->load->library('parser');
+        $this->load->library('session');	
+		$this->load->library('parser');
+
+		if(!$this->session->userdata('email')){
+			return header('location:'.base_url('/auth'));
+	  }
 	}
 
 	public function index(){
@@ -104,45 +110,45 @@ class MonitoringStockController extends CI_Controller {
     public function getAllData(){
 
         $list = $this->MonitoringStockModel->getAllData();
-        $data = array();
-        $no = $_POST['start'];
+        $no = ($_POST['start']+1);
+        $data = [];
+
         foreach ($list as $cts) {
             $shelfLife = ($cts->shelf_life*100)."%";
-            $row = array();
-
-            $row[] = $no++;
-            $row[] = $cts->periode;
-            $row[] = $cts->kode_plant;
-            $row[] = $cts->nama_plant;
-            $row[] = $cts->store_location;
-            $row[] = $cts->material_type;
-            $row[] = $cts->material_group;
-            $row[] = $cts->pack_size_old;
-            $row[] = $cts->material;
-			$row[] = $cts->material_description;
-			$row[] = $cts->batch;
-			$row[] = $cts->sledd_bdd;
-			$row[] = $cts->valution_type;
-			$row[] = $cts->gr_date;
-			$row[] = $cts->mkt_category3;
-			$row[] = $cts->total_stock;
-			$row[] = $cts->base_unit;
-			$row[] = $cts->cut_off_stock;
-			$row[] = $cts->storage_condition;
-			$row[] = $cts->total_self_life;
-			$row[] = $cts->mkt_category1;
-			$row[] = $cts->standard_price;
-			$row[] = $cts->total_value;
-			$row[] = $cts->time_to_expired;
-			$row[] = $shelfLife;
-			$row[] = $cts->ket_shelf_life;
-			$row[] = $cts->claim_no_claim;
-			$row[] = $cts->status_inventory;
-			$row[] = $cts->sisa_sledd;
-			$row[] = $cts->ket_mat_group;
-			$row[] = $cts->sisa_total_shelf_life;
-			$row[] = $cts->create_et;
-			$data[] = $row;
+            $data [] = [
+                $no++,
+                $cts->periode,
+                $cts->kode_plant,
+                $cts->nama_plant,
+                $cts->store_location,
+                $cts->material_type,
+                $cts->material_group,
+                $cts->pack_size_old,
+                $cts->material,
+                $cts->material_description,
+                $cts->batch,
+                $cts->sledd_bdd,
+                $cts->valution_type,
+                $cts->gr_date,
+                $cts->mkt_category3,
+                $cts->total_stock,
+                $cts->base_unit,
+                $cts->cut_off_stock,
+                $cts->storage_condition,
+                $cts->total_self_life,
+                $cts->mkt_category1,
+                $cts->standard_price,
+                $cts->total_value,
+                $cts->time_to_expired,
+                $shelfLife,
+                $cts->ket_shelf_life,
+                $cts->claim_no_claim,
+                $cts->status_inventory,
+                $cts->sisa_sledd,
+                $cts->ket_mat_group,
+                $cts->sisa_total_shelf_life,
+                $cts->create_et
+            ];
         }
  
         $output = array(

@@ -206,9 +206,10 @@
             $('#infoUpload').click(function(){
                 Swal.fire({
                     icon : 'info',
-                    text : 'Centang pertama upload untuk membersihkan data yang ada pada database sebelum nya,' +
-                            ' Jika tidak dicentang maka data sebelum nya akan bertambah dengan data baru. atau centang' +
-                            ' Satu kali hanya pada saat file pertama di upload, jika memiliki file excel yang displit menjadi beberapa bagian' 
+                    text : 'Centang pertama upload untuk membersihkan data sebelum nya yang ada pada database,' +
+                            ' Jika tidak dicentang maka data sebelum nya akan bertambah dengan data baru, jika memiliki' +
+                            ' file excel yang displit menjadi beberapa bagian' + 
+                            ' silahkan centang Sekali Saat File Excel Pertama Diupload' 
                 });
             });
         }());
