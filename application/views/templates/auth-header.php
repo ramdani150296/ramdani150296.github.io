@@ -12,4 +12,4 @@
     <link href="<?=base_url('assets/login/css/sb-admin-2.min.css')?>" rel="stylesheet" type="text/css">
     <title>LOGIN | Inventory</title>
 </head>
-<body background="<?=base_url()?>assets/template/dist/img/bg2.jpg">
+<body>
