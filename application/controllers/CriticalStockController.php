@@ -15,7 +15,7 @@ class CriticalStockController extends CI_Controller {
 
 		if(!$this->session->userdata('email')){
 			return header('location:'.base_url('/auth'));
-	  }
+	    }
 	}
 
 	public function index(){

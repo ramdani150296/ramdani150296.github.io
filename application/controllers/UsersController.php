@@ -144,7 +144,11 @@ class UsersController extends CI_Controller {
         $command = $_POST['command'];
         
         if($command === 'doUpdate'){
-            $response = $this->doUpdate(); 
+            $response = $this->doUpdate([
+                'email' => $email,
+                'fullName' => $fullName,
+                'id' => $userId
+            ]); 
         }else if($command === 'doDelete'){
             $response = $this->doDelete($userId);
         }   
@@ -176,8 +180,19 @@ class UsersController extends CI_Controller {
     }
 
     private function doUpdate(array $data){
-        if($this->userExistsCheck($data['id']) === null){
-            
+        $userCheck = $this->userExistsCheck($data['id']);
+        
+        if($userCheck !== null){
+            return $userCheck;
+        }else{
+            if(!$this->UsersModel->doUpdateUserById($data)) {
+                return 'Gagal Melakukan Update Data, Dengan ID '.$data['id'];
+            }else{
+                $this->session->set_userdata([
+                    'email' => $data['email']
+                ]);
+                return null;
+            }
         }
     }
 

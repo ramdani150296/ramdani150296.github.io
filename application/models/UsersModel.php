@@ -111,4 +111,12 @@ class UsersModel extends CI_Model
         $this->db->delete($this->table);
         return $this->findUserById($id);
     }
+
+    public function doUpdateUserById(array $data){
+        return $this->db->update(
+            $this->table,
+            $data,
+            "id=BINARY('".$data['id']."')"
+        );
+    }
 }
