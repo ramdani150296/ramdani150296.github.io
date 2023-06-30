@@ -70,34 +70,38 @@ class CriticalStockController extends CI_Controller {
                         $comma = $this->givingComma($i, $totalColumns, 1);
                         $scope = ($i == $totalColumns) ? ")" : null;
                         $headerValue = $loadActiveSheet->getCellByColumnAndRow($i, 1)->getValue();
-                        $columnsName .=  $headerValue.$comma.$scope;
+                        preg_match_all('/[a-zA-Z0-9]+/', $headerValue, $headerResults, PREG_OFFSET_CAPTURE);
+                        // $columnsName .=  $this->joinHeader($headerResults[0]).$comma.$scope;
+                        print_r("$"."cts->".$this->joinHeader($headerResults[0]).$comma."\r\n");
                     }
+                    $response = $columnsName;
+                    
 
-                    for($j = 2; $j <= $totalRows;  $j++){
-                        $comma2 = $this->givingComma($j, $totalRows, 1);
-                        $parentheses = "(";
+                    // for($j = 2; $j <= $totalRows;  $j++){
+                    //     $comma2 = $this->givingComma($j, $totalRows, 1);
+                    //     $parentheses = "(";
 
-                        for($k= 1; $k <= $totalColumns; $k++){
-                            $comma3 = $this->givingComma($k, $totalColumns, 1);
-                            $columnValue = $loadActiveSheet->getCellByColumnAndRow($k, $j)->getValue();
-                            $parentheses .= ($k === $totalColumns)? "'".$timeCreated."'" : "'".htmlspecialchars($columnValue, ENT_QUOTES)."'".$comma3;
-                        }
+                    //     for($k= 1; $k <= $totalColumns; $k++){
+                    //         $comma3 = $this->givingComma($k, $totalColumns, 1);
+                    //         $columnValue = $loadActiveSheet->getCellByColumnAndRow($k, $j)->getValue();
+                    //         $parentheses .= ($k === $totalColumns)? "'".$timeCreated."'" : "'".htmlspecialchars($columnValue, ENT_QUOTES)."'".$comma3;
+                    //     }
 
-                        $columnsValues .= $parentheses.")".$comma2."\r\n";
-                    }
+                    //     $columnsValues .= $parentheses.")".$comma2."\r\n";
+                    // }
 
-                    if(isset($_POST['first_upload']) && $_POST['first_upload'] === 'true'){
-                        $executeQueryClear = $this->db->query("truncate tbl_critical_stock;");
-                        if(!$executeQueryClear){
-                        $response .= $this->db->intl_get_error_message();
-                        }
-                    }
+                    // if(isset($_POST['first_upload']) && $_POST['first_upload'] === 'true'){
+                    //     $executeQueryClear = $this->db->query("truncate tbl_critical_stock;");
+                    //     if(!$executeQueryClear){
+                    //         $response .= $this->db->intl_get_error_message();
+                    //     }
+                    // }
 
-                    $query = "INSERT INTO tbl_critical_stock ".$columnsName." VALUES ".$columnsValues.";";
-                    $executeQuery = $this->db->query($query);
-                    if(!$executeQuery){
-                        $response .= $this->db->intl_get_error_message();
-                    }
+                    // $query = "INSERT INTO tbl_critical_stock ".$columnsName." VALUES ".$columnsValues.";";
+                    // $executeQuery = $this->db->query($query);
+                    // if(!$executeQuery){
+                    //     $response .= $this->db->intl_get_error_message();
+                    // }
                 }
             }
         }
@@ -122,49 +126,35 @@ class CriticalStockController extends CI_Controller {
             $shelfLife = (round($cts->shelf_life_present)*100)."%";
             $data[] = [
                 $no++,
-                $cts->plant,
-                $cts->nama_area,
-                $cts->storage_location,
-                $cts->material_type,
-                $cts->material_group,
-                $cts->material_group_desc,
-                $cts->pack_size_old,
-                $cts->material,
-                $cts->material_description,
-                $cts->batch,
-                $cts->tanggal_ed,
-                $cts->valution_tipe,
-                $cts->gr_date,
-                $cts->mkt_categori3,
-                $cts->total_stock_bu,
-                $cts->schedule_delivery_bu,
-                $cts->available_stock_bu,
-                $cts->base_unit,
-                $cts->total_stock_ou,
-                $cts->schedule_delivery_ou,
-                $cts->available_stock_ou,
-                $cts->order_unit,
-                $cts->total_stock_su,
-                $cts->schedule_delivery_su,
-                $cts->available_su,
-                $cts->sales_unit,
-                $cts->shelf_life_product,
-                $cts->periode_shelf_life,
-                $cts->cut_off_stock,
-                $cts->storage_condition,
-                $cts->total_self_life,
-                $cts->mkt_category1,
-                $cts->standard_price,
-                $cts->total_value,
-                $cts->time_to_expired,
-                $shelfLife,
-                $cts->ket_self_life,
-                $cts->kategori_principal,
-                $cts->status_inventory,
-                $cts->sisa_sled,
-                $cts->ket_mat_group,
-                $cts->shelf_life_month,
-                $cts->create_et
+                $cts->plant, 
+                $cts->name_1, 
+                $cts->storage_location, 
+                $cts->material_type, 
+                $cts->material_group, 
+                $cts->pack_size_old, 
+                $cts->material, 
+                $cts->material_description, 
+                $cts->batch, 
+                $cts->sled_bbd, 
+                $cts->valuation_type, 
+                $cts->gr_date, 
+                $cts->mkt_category_3, 
+                $cts->total_stock_bu, 
+                $cts->base_unit, 
+                $cts->cut_off_stock, 
+                $cts->storage_conditions, 
+                $cts->total_shelf_life, 
+                $cts->mkt_category_1, 
+                $cts->standard_price, 
+                $cts->total_value, 
+                $cts->time_to_expired, 
+                // $cts->shelf_life, 
+                $cts->ket_shelf_life, 
+                $cts->claim_no_claim, 
+                $cts->status_inventory, 
+                $cts->sisa_sled_bbd, 
+                $cts->ket_mat_group, 
+                $cts->sisa_total_shelf_life_in_month
             ];
         }
 
@@ -178,6 +168,17 @@ class CriticalStockController extends CI_Controller {
 
         //output to json format
         echo json_encode($output);
+    }
+
+
+    public function joinHeader(array $header){
+        $headerText = "";
+        $headerLength = count($header);
+        for($i = 0; $i < $headerLength; $i++){
+            $underScore = ($i < ($headerLength-1) && $headerLength > 1) ? '_' : null;
+            $headerText .= strtolower($header[$i][0]).$underScore;
+        }
+        return $headerText;
     }
 
 }

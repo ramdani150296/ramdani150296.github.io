@@ -146,7 +146,7 @@ class UsersController extends CI_Controller {
         if($command === 'doUpdate'){
             $response = $this->doUpdate([
                 'email' => $email,
-                'fullName' => $fullName,
+                'fullname' => $fullName,
                 'id' => $userId
             ]); 
         }else if($command === 'doDelete'){
@@ -189,6 +189,7 @@ class UsersController extends CI_Controller {
                 return 'Gagal Melakukan Update Data, Dengan ID '.$data['id'];
             }else{
                 $this->session->set_userdata([
+                    'fullname' => $data['fullname'],
                     'email' => $data['email']
                 ]);
                 return null;

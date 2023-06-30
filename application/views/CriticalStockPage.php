@@ -135,7 +135,7 @@
         var swallUploadAlert = (function(){
             var titleUpload = "Jika Upload di setujui maka, data " + 
                                 "upload yang sebelum nya akan digantikan "+
-                                "dengan data baru, lanjutkan upload ?";
+                                "dengan data baru jika Upload Pertama dicentang, lanjutkan upload ?";
             return Swal.fire({
                 title: 'Konfirmasi Upload',
                 text: titleUpload,
