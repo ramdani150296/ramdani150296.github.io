@@ -4,9 +4,7 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <div class="row">
-                             <div class="col-lg-6 d-none d-lg-block bg-login-image">
-                                <img src="<?=base_url()?>assets/img/diamond.jpeg" style="width:105%; height:100%" >
-                             </div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
@@ -34,7 +32,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?=base_url('auth/registration');?>">Create an Account!</a>
+                                        <a class="small" href="<?=base_url('registration');?>">Create an Account!</a>
                                         <hr>
                                         <strong style="color:black;">Copyright &copy;2023 | Diamond Group</a>
                                     </div>
