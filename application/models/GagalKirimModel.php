@@ -1,46 +1,57 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MonitoringStockModel extends CI_Model {
+class GagalKirimModel extends CI_Model {
 
 	protected $table;
 	protected $columnSearch;
 	protected $columnOrder;
 
 	public function __construct(){
-		$this->table = 'm_monitoring_stocks';
-		$this->columnSearch = ['Storage_location','batch'];
+		$this->table = 'm_undeliverable_stocks';
+		$this->columnSearch = ['periode','plant'];
 		$this->columnOrder = [
-            null, 
+            null,
             'plant', 
-            'name_1', 
-            'storage_location', 
-            'material_type', 
-            'material_group', 
-            'pack_size_old', 
-            'material', 
-            'material_description', 
-            'batch', 
-            'sled_bbd', 
-            'valuation_type', 
-            'gr_date', 
-            'mkt_category_3', 
-            'total_stock_bu', 
-            'base_unit', 
-            'cut_off_stock', 
-            'storage_conditions', 
-            'total_shelf_life', 
-            'mkt_category_1', 
-            'standard_price', 
-            'total_value', 
-            'time_to_expired', 
-            'shelf_life', 
-            'ket_shelf_life', 
-            'claim_no_claim', 
-            'status_inventory', 
-            'sisa_sled_bbd', 
-            'ket_mat_group', 
-            'sisa_total_shelf_life_in_month',
+            'plant_desc', 
+            'shipment_no', 
+            'shipment_date', 
+            'delivery_date', 
+            'delivery_no', 
+            'delivery_type', 
+            'delivery_type_desc', 
+            'ship_to_party', 
+            'ship_to_party_desc', 
+            'shipping_point', 
+            'sales_group', 
+            'material_no', 
+            'storage', 
+            'line_item', 
+            'brand', 
+            'material_desc', 
+            'uom', 
+            'delivery_qty', 
+            'value_tax', 
+            'total_value_tax', 
+            'ext_vehicle_data', 
+            'int_vehicle_id', 
+            'int_driver_code', 
+            'int_driver_name', 
+            'int_helper_code_1', 
+            'pod_date', 
+            'diff_qty', 
+            'uom_pod', 
+            'pod_reason_code', 
+            'pod_reason_desc', 
+            'rejection', 
+            'condition_group_2', 
+            'ket_tambahan', 
+            'bulan', 
+            'value_gagal', 
+            'cek_segment', 
+            'ke_cbg_atau_bukan', 
+            'mk3_category', 
+            'week',
             'recorded_date'
         ];
 	}

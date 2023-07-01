@@ -110,7 +110,7 @@
 
                             <ul class="nav nav-treeview ml-2">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="GagalKirimController" class="nav-link">
                                         <i class="fa-solid fa-truck"></i>
                                         <p>Gagal Kirim</p>
                                     </a>

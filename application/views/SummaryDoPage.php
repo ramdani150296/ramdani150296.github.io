@@ -25,19 +25,17 @@
                 <table border="1" id="example1" class="table table-striped table-hover table-sm small align-middle">
                     <thead class="thead-dark text-nowrap">
                         <tr>
-                             <th>No</th>
-                             <th>PERIODE</th>
-                             <th>SEMESTER</th>
-                             <th>PLANT</th>
-                             <th>KETERANGAN HO/CBG </th>
-                             <th>MATERIAL DESCRIPTION GROUP</th>
-                             <th>NAMA CABANG</th>
-                             <th>MATERIAL</th>
-                             <th>CREATE DO</th>
-                             <th>CREATE SUKSES</th>
-                             <th>DO GAGAL</th>
-                             <th>% DO GAGAL</th>
-                             <th>CREATE ET</th>
+                            <th>No</th>
+                            <th>BULAN</th>
+                            <th>SEMESTER</th>
+                            <th>PLANT</th>
+                            <th>KETERANGAN HO/CBG</th>
+                            <th>NAMA CABANG / PLANT</th>
+                            <th>CREATE DO</th>
+                            <th>CREATE SUKSES</th>
+                            <th>DO GAGAL</th>
+                            <th>DO GAGAL PERSENT</th>
+                            <th>RECORD DATE</th>
                         </tr>
                     </thead>
                 </table>

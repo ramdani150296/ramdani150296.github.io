@@ -1,37 +1,37 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MonitoringPerbandinganStockModel extends CI_Model {
+class PerbandinganStockModel extends CI_Model {
 
 	protected $table;
 	protected $columnSearch;
 	protected $columnOrder;
 
 	public function __construct(){
-		$this->table = 'tbl_perbandingan';
+		$this->table = 'm_comparison_stocks';
 		$this->columnSearch = ['group','batch'];
 		$this->columnOrder = [
             null, 
-            'periode',
-            'jenis_penyimpanan',
-            'plant',
-            'group',
-            'material',
-            'description',
-            'pack_size',
-            'valution_type',
-            'batch',
-            'sledd_bdd',
-            'uom',
-            'system_cycle_count',
-            'system_stock_taking',
-            'fisik_cycle_count',
-            'fisik_stock_taking',
-            'akurasi_cc',
-            'akurasi_st',
-            'keterangan',
-            'gap_akurat',
-            'create_et'
+            'bulan', 
+            'jenis_penyimpanan', 
+            'plant', 
+            'group', 
+            'material', 
+            'desc', 
+            'pack_size', 
+            'val_type', 
+            'batch', 
+            'sled_bbd', 
+            'uom', 
+            'system_cycle_count', 
+            'system_stock_taking', 
+            'fisik_cycle_count', 
+            'fisik_stock_taking', 
+            'cc', 
+            'st', 
+            'keterangan', 
+            'gap_akurasi',
+            'recorded_date'
         ];
 	}
 
@@ -89,7 +89,7 @@ class MonitoringPerbandinganStockModel extends CI_Model {
         if($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
-        return $query->result();
+        return $query->result_array();
     }
 
     public function countFilteredData(){

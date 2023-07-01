@@ -26,37 +26,36 @@
                     <thead class="thead-dark text-nowrap">
                         <tr>
                             <th>No.</th>
-                            <th>PERIODE</th>
-                            <th>KODE PLANT</th>
-                            <th>NAMA PLANT</th>
+                            <th>PLANT</th>
+                            <th>NAME 1</th>
                             <th>STORAGE LOCATION</th>
                             <th>MATERIAL TYPE</th>
                             <th>MATERIAL GROUP</th>
-                            <th>PACK SIZE</th>
+                            <th>PACK SIZE OLD</th>
                             <th>MATERIAL</th>
                             <th>MATERIAL DESCRIPTION</th>
                             <th>BATCH</th>
-                            <th>SLEDD/BDD</th>
-                            <th>VALUTION TYPE</th>
+                            <th>SLED/BBD</th>
+                            <th>VALUATION TYPE</th>
                             <th>GR DATE</th>
-                            <th>MKT CATEGORY3</th>
-                            <th>TOTAL STOCK BU</th>
+                            <th>MKT CATEGORY 3</th>
+                            <th>TOTAL STOCK (BU)</th>
                             <th>BASE UNIT</th>
                             <th>CUT OFF STOCK</th>
                             <th>STORAGE CONDITIONS</th>
-                            <th>TOTAL SELF LIFE</th>
+                            <th>TOTAL SHELF LIFE</th>
                             <th>MKT CATEGORY 1</th>
                             <th>STANDARD PRICE</th>
                             <th>TOTAL VALUE</th>
                             <th>TIME TO EXPIRED</th>
-                            <th>% SHELF LIFE </th>
+                            <th>% SHELF LIFE</th>
                             <th>KET SHELF LIFE</th>
-                            <th>CLAIM/NO CLAIM</th>
+                            <th>CLAIM/ NO CLAIM</th>
                             <th>STATUS INVENTORY</th>
-                            <th>SISA SLED/BDD</th>
+                            <th>SISA SLED/BBD</th>
                             <th>KET MAT GROUP</th>
                             <th>SISA TOTAL SHELF LIFE (IN MONTH)</th>
-                            <th>TANGGAL CREATE</th>
+                            <th>RECORD DATE</th>
                         </tr>
                     </thead>
                 </table>

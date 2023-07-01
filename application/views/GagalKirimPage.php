@@ -26,40 +26,46 @@
                     <thead class="thead-dark text-nowrap">
                         <tr>
                             <th>No</th>
-                            <th>CUT OFF</th>
                             <th>PLANT</th>
-                            <th>SLOC</th>
-                            <th>TYPE</th>
-                            <th>GROUP</th>
-                            <th>PACK SIZE</th>
-                            <th>MATERIAL</th>
-                            <th>DESC</th>
+                            <th>PLANT DESC.</th>
+                            <th>SHIPMENT NO.</th>
+                            <th>SHIPMENT DATE</th>
+                            <th>DELIVERY DATE</th>
+                            <th>DELIVERY NO.</th>
+                            <th>DELIVERY TYPE</th>
+                            <th>DELIVERY TYPE DESC</th>
+                            <th>SHIP TO PARTY</th>
+                            <th>SHIP TO PARTY DESC</th>
+                            <th>SHIPPING POINT</th>
+                            <th>SALES GROUP</th>
+                            <th>MATERIAL NO.</th>
+                            <th>STORAGE</th>
+                            <th>LINE ITEM</th>
+                            <th>BRAND</th>
+                            <th>MATERIAL DESC.</th>
                             <th>UOM</th>
-                            <th>BATCH</th>
-                            <th>SLED/BBD</th>
-                            <th>VAL. TYPE</th>
-                            <th>STORAGE TYPE</th>
-                            <th>STORAGE BIN</th>
-                            <th>TOTAL STOCK</th>
-                            <th>UNPOSTED</th>
-                            <th>ONHAND REV</th>
-                            <th>GOOD</th>
-                            <th>BAD</th>
-                            <th>DIFF QTY</th>
-                            <th>BIN ACCURACY</th>
-                            <th>STD PRICE</th>
-                            <th>ONHAND VAL</th>
-                            <th>PHYSIC VAL</th>
-                            <th>DIFF VAL</th>
-                            <th>ED PISIK</th>
-                            <th>KET</th>
-                            <th>VAL GOD</th>
-                            <th>VAL BAD</th>
-                            <th>AKURASI</th>
-                            <th>TYPE 1</th>
-                            <th>KODE</th>
+                            <th>DELIVERY QTY.</th>
+                            <th>VALUE (+TAX)</th>
+                            <th>TOTAL VALUE (+TAX)</th>
+                            <th>EXT. VEHICLE DATA</th>
+                            <th>INT. VEHICLE ID</th>
+                            <th>INT. DRIVER CODE</th>
+                            <th>INT. DRIVER NAME</th>
+                            <th>INT. HELPER CODE 1</th>
+                            <th>POD DATE</th>
+                            <th>DIFF. QTY.</th>
+                            <th>UOM (POD)</th>
+                            <th>POD REASON CODE</th>
+                            <th>POD REASON DESC.</th>
+                            <th>REJECTION</th>
+                            <th>CONDITION GROUP 2</th>
+                            <th>KET TAMBAHAN</th>
                             <th>BULAN</th>
-                            <th>STOCK FISIK</th>
+                            <th>VALUE GAGAL</th>
+                            <th>CEK SEGMENT</th>
+                            <th>KE CBG ATAU BUKAN</th>
+                            <th>MK3 CATEGORY</th>
+                            <th>WEEK</th>
                             <th>RECORD DATE</th>
                         </tr>
                     </thead>
@@ -89,7 +95,7 @@
                     if(await swallUploadAlert()){
                         swallLoading();
                         this.onsubmit = null;
-                        xhr.open('POST', '<?= base_url('AkurasiStockController/doInsertData'); ?>');
+                        xhr.open('POST', '<?= base_url('GagalKirimController/doInsertData'); ?>');
                         xhr.onerror = function(e) {
                             turnBackOnButton();
                             return swallPopUp('Upload Gagal, Periksa Jaringan Internet ' + e.target.status, 'error');
@@ -161,7 +167,7 @@
                     processing : true, //Feature control the processing indicator.
                     serverSide : true, //Feature control DataTables' server-side processing mode.
                     ajax : { // Load data for the table's content from an Ajax source
-                        url : "<?php echo site_url('AkurasiStockController/getAllData') ?>",
+                        url : "<?php echo site_url('GagalKirimController/getAllData') ?>",
                         type : "POST"
                     },
                     columnDefs : [ //Set column definition initialisation properties.

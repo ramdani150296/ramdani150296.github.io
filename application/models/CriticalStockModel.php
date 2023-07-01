@@ -8,41 +8,61 @@ class CriticalStockModel extends CI_Model {
 	protected $columnOrder;
 
 	public function __construct(){
-		$this->table = 'tbl_critical_stock';
+		$this->table = 'm_critical_stocks';
 		$this->columnSearch = ['Storage_location','batch'];
 		$this->columnOrder = [
             null, 
-            'periode',
-            'kode_plant',
-            'nama_plant',
-            'store_location',
-            'material_type',
-            'material_group',
-            'pack_size_old',
-            'material',
-            'material_description',
-            'batch',
-            'sledd_bdd',
-            'valution_type',
-            'gr_date',
-            'mkt_category3',
-            'total_stock',
-            'base_unit',
-            'cut_off_stock',
-            'storage_condition',
-            'total_self_life',
-            'mkt_category1',
-            'standard_price',
-            'total_value',
-            'time_to_expired',
-            'self_life',
-            'ket_self_life',
-            'claim_no_claim',
-            'status_inventory',
-            'sisa_sledd',
-            'ket_mat_group',
-            'sisa_total_shelf_life',
-            'create_et'
+            'plant', 
+            'name_1', 
+            'storage_location', 
+            'material_type', 
+            'material_group', 
+            'pack_size_old', 
+            'material', 
+            'material_desc', 
+            'batch', 
+            'sled_bbd', 
+            'valuation_type', 
+            'gr_date', 
+            'mkt_category_3', 
+            'total_stock_bu', 
+            'base_unit', 
+            'cut_off_stock', 
+            'storage_conditions', 
+            'total_shelf_life', 
+            'standard_price', 
+            'total_value', 
+            'time_to_expired', 
+            'shelf_life', 
+            'ket_shelf_life', 
+            'principal_non_principal', 
+            'status_inventory', 
+            'sisa_sled_bbd', 
+            'shelf_life_in_month', 
+            'qty_sales', 
+            'qty_pgi', 
+            'qty_nkb', 
+            'qty_sto', 
+            'qty_disposal', 
+            'qty_migo', 
+            'remaks_migo', 
+            'sales', 
+            'pgi', 
+            'nkb', 
+            'sto', 
+            'disposal', 
+            'migo', 
+            'aall', 
+            'value_sales', 
+            'value_pgi', 
+            'value_nkb', 
+            'value_sto', 
+            'value_disposal', 
+            'value_migo', 
+            'progress_value', 
+            'value_awal', 
+            'kategory_progres',
+            'recorded_date'
         ];
 	}
 
@@ -84,8 +104,7 @@ class CriticalStockModel extends CI_Model {
             $i++;
         }
          
-        if(isset($_POST['order'])) // here order processing
-        {
+        if(isset($_POST['order'])) {
             $this->db->order_by($this->columnOrder[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
         } 
         // else if(isset($this->order))
@@ -100,7 +119,7 @@ class CriticalStockModel extends CI_Model {
         if($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
-        return $query->result();
+        return $query->result_array();
     }
 
     public function countFilteredData(){
@@ -114,6 +133,9 @@ class CriticalStockModel extends CI_Model {
         return $this->db->count_all_results();
     }
 
+    public function getTable(){
+        return $this->table;
+    }
 }
 
 ?>

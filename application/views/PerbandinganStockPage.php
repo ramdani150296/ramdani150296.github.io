@@ -25,27 +25,27 @@
                 <table border="1" id="example1" class="table table-striped table-hover table-sm small align-middle">
                     <thead class="thead-dark text-nowrap">
                         <tr>
-                                <th>NO</th>
-                                <th>PERIODE</th>
-                                <th>JENIS PENYIMPANAN</th>
-                                <th>PLANT</th>
-                                <th>GROUP</th>
-                                <th>MATERIAL</th>
-                                <th>MATERIAL DESCRIPTION</th>
-                                <th>PACK SIZE</th>
-                                <th>VALUTION TYPE</th>
-                                <th>BATCH</th>
-                                <th>SLED_BDD</th>
-                                <th>UOM</th>
-                                <th>SYSTEM CYCLE COUNT</th>
-                                <th>SYSTEM STOCK TAKING</th>
-                                <th>FISIK CYCLE COUNT</th>
-                                <th>FISIK STOCK TAKING</th>
-                                <th>% CC</th>
-                                <th>% ST</th>
-                                <th>KETERANGAN</th>
-                                <th>GAP AKURAT</th>
-                                <th>CREAT ET</th>
+                            <th>NO</th>
+                            <th>BULAN</th>
+                            <th>JENIS PENYIMPANAN</th>
+                            <th>PLANT</th>
+                            <th>GROUP</th>
+                            <th>MATERIAL</th>
+                            <th>DESC</th>
+                            <th>PACK SIZE</th>
+                            <th>VAL. TYPE</th>
+                            <th>BATCH</th>
+                            <th>SLED/BBD</th>
+                            <th>UOM</th>
+                            <th>SYSTEM CYCLE COUNT</th>
+                            <th>SYSTEM STOCK TAKING</th>
+                            <th>FISIK CYCLE COUNT</th>
+                            <th>FISIK STOCK TAKING</th>
+                            <th>%CC</th>
+                            <th>%ST</th>
+                            <th>KETERANGAN</th>
+                            <th>GAP AKURASI</th>
+                            <th>RECORD DATE</th>
                         </tr>
                     </thead>
                 </table>

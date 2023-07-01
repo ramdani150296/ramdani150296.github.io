@@ -8,20 +8,20 @@ class SummaryDoModel extends CI_Model {
 	protected $columnOrder;
 
 	public function __construct(){
-		$this->table = 'tbl_summary_do';
+		$this->table = 'm_summary';
 		$this->columnSearch = ['periode','plant'];
 		$this->columnOrder = [
-            null, 
-            'periode',
-            'semester',
-            'plant',
-            'kategori_cabang_ho',
-            'nama_cabang',
-            'create_do',
-            'create_sukses',
-            'do_gagal',
-            'do_gagal_present',
-            'create_et'
+            null,
+            'bulan', 
+            'semester', 
+            'plant', 
+            'keterangan_ho_cbg', 
+            'nama_cabang_plant', 
+            'create_do', 
+            'create_sukses', 
+            'do_gagal', 
+            'do_gagal_persent',
+            'recorded_date'
         ];
 	}
 
@@ -79,7 +79,7 @@ class SummaryDoModel extends CI_Model {
         if($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
-        return $query->result();
+        return $query->result_array();
     }
 
     public function countFilteredData(){

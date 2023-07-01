@@ -32,7 +32,7 @@ class UsersController extends CI_Controller {
         }
     }
 
-    private function givingComma($iterator, $totalLengthValue, $startIterator){
+    private function commaSeparator($iterator, $totalLengthValue, $startIterator){
         return ($iterator >= $startIterator && $iterator < $totalLengthValue) ? (($totalLengthValue === $startIterator) ? null : ", ") : null;
     }
 
@@ -67,7 +67,7 @@ class UsersController extends CI_Controller {
                 }else{
 
                     for($i = 1; $i <= $totalColumns; $i++){
-                        $comma = $this->givingComma($i, $totalColumns, 1);
+                        $comma = $this->commaSeparator($i, $totalColumns, 1);
                         $scope = ($i == $totalColumns) ? ")" : null;
                         $headerValue = $loadActiveSheet->getCellByColumnAndRow($i, 1)->getValue();
                         $finalHeaderValue = ($i === $totalColumns) ? 'create_et' : $headerValue; 
@@ -75,11 +75,11 @@ class UsersController extends CI_Controller {
                     }
 
                     for($j = 2; $j <= $totalRows;  $j++){
-                        $comma2 = $this->givingComma($j, $totalRows, 1);
+                        $comma2 = $this->commaSeparator($j, $totalRows, 1);
                         $parentheses = "(";
 
                         for($k= 1; $k <= $totalColumns; $k++){
-                            $comma3 = $this->givingComma($k, $totalColumns, 1);
+                            $comma3 = $this->commaSeparator($k, $totalColumns, 1);
                             $columnValue = $loadActiveSheet->getCellByColumnAndRow($k, $j)->getValue();
                             $parentheses .= ($k === $totalColumns)? "'".$timeCreated."'" : "'".htmlspecialchars($columnValue, ENT_QUOTES)."'".$comma3;
                         }

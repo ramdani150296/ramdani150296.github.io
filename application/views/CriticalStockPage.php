@@ -33,48 +33,56 @@
                         <tr>
                             <th>No.</th>
                             <th>PLANT</th>
-                            <th>NAMA AREA</th>
+                            <th>NAME 1</th>
                             <th>STORAGE LOCATION</th>
                             <th>MATERIAL TYPE</th>
                             <th>MATERIAL GROUP</th>
-                            <th>MATERIAL GROUP DESCRIPTION</th>
-                            <th>PACK SIZE</th>
+                            <th>PACK SIZE OLD</th>
                             <th>MATERIAL</th>
-                            <th>MATERIAL DESCRIPTION</th>
+                            <th>MATERIAL DESC</th>
                             <th>BATCH</th>
-                            <th>SLEDD/BDD</th>
-                            <th>VALUTION TYPE</th>
+                            <th>SLED/BBD</th>
+                            <th>VALUATION TYPE</th>
                             <th>GR DATE</th>
-                            <th>MKT CATEGORY3</th>
-                            <th>TOTAL STOCK BU</th>
-                            <th>SCHEDULE DELIVERY BU</th>
-                            <th>AVAILABLE STOCK BU</th>
+                            <th>MKT CATEGORY 3</th>
+                            <th>TOTAL STOCK (BU)</th>
                             <th>BASE UNIT</th>
-                            <th>TOTAL STOCK OU</th>
-                            <th>SCHEDULE DELIVERY OU</th>
-                            <th>AVAILABLE STOCK OU</th>
-                            <th>ORDER UNIT</th>
-                            <th>TOTAL STOCK SU</th>
-                            <th>SCHEDULE DELIVERY SU</th>
-                            <th>AVAILABLE SU</th>
-                            <th>SALES UNIT</th>
-                            <th>SELF LIFE PRODUCT</th>
-                            <th>PERIODE SHELF LIFE </th>
-                            <th>CUT OFF STOCK</th>
-                            <th>STORAGE CONDITION</th>
-                            <th>TOTAL SELF LIFE</th>
-                            <th>MKT CATEGORY 1</th>
+                            <th>CUT  OFF STOCK</th>
+                            <th>STORAGE CONDITIONS</th>
+                            <th>TOTAL SHELF LIFE</th>
                             <th>STANDARD PRICE</th>
                             <th>TOTAL VALUE</th>
                             <th>TIME TO EXPIRED</th>
-                            <th>SELF LIFE %</th>
-                            <th>KET SELF LIFE</th>
-                            <th>KATEGORI PRINCIPAL</th>
+                            <th>% SHELF LIFE</th>
+                            <th>KET SHELF LIFE</th>
+                            <th>PRINCIPAL/ NON PRINCIPAL</th>
                             <th>STATUS INVENTORY</th>
-                            <th>SISA SLED</th>
-                            <th>KET MATERIAL GROUP</th>
-                            <th>SELF LIFE MONTH</th>
-                            <th>TANGGAL CREATE</th>
+                            <th>SISA SLED/BBD</th>
+                            <th>SHELF LIFE (IN MONTH)</th>
+                            <th>QTY SALES</th>
+                            <th>QTY PGI</th>
+                            <th>QTY NKB</th>
+                            <th>QTY STO</th>
+                            <th>QTY DISPOSAL</th>
+                            <th>QTY MIGO</th>
+                            <th>REMAKS MIGO</th>
+                            <th>%SALES</th>
+                            <th>%PGI</th>
+                            <th>%NKB</th>
+                            <th>%STO</th>
+                            <th>%DISPOSAL</th>
+                            <th>%MIGO</th>
+                            <th>%AALL</th>
+                            <th>VALUE SALES</th>
+                            <th>VALUE PGI</th>
+                            <th>VALUE NKB</th>
+                            <th>VALUE STO</th>
+                            <th>VALUE DISPOSAL</th>
+                            <th>VALUE MIGO</th>
+                            <th>PROGRESS VALUE</th>
+                            <th>VALUE AWAL</th>
+                            <th>KATEGORY PROGRES</th>
+                            <th>RECORD DATE</th>
                         </tr>
                     </thead>
                 </table>

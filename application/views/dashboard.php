@@ -59,39 +59,9 @@
       data: {
          labels: [
             <?php
-            if (count($graph) > 0) {
-               foreach ($graph as $data) {
-                  echo "'" . $data->nama_area . "',";
-               }
-            }
-
-            ?>
-         ],
-         datasets: [{
-            label: 'Critical Stock',
-            backgroundColor: '#FF0000',
-            borderColor: '#708090',
-            data: [
-               <?php
                if (count($graph) > 0) {
                   foreach ($graph as $data) {
-                     echo $data->total_value . ", ";
-                  }
-               }
-
-               ?>
-            ]
-         }]
-      },
-   });
-   var chartPie = new Chart(canvasCtxChartPie, {
-      type: 'pie',
-      data: {
-         labels: [
-            <?php
-               if (count($graph) > 0) {
-                  foreach ($graph as $data) {
-                     echo "'" . $data->nama_area . "',";
+                     echo "'".$data['name_1']."',";
                   }
                }
             ?>
@@ -104,7 +74,35 @@
                <?php
                   if (count($graph) > 0) {
                      foreach ($graph as $data) {
-                        echo $data->total_value . ", ";
+                        echo $data['total_value'].", ";
+                     }
+                  }
+               ?>
+            ]
+         }]
+      },
+   });
+   var chartPie = new Chart(canvasCtxChartPie, {
+      type: 'pie',
+      data: {
+         labels: [
+            <?php
+               if (count($graph) > 0) {
+                  foreach ($graph as $data) {
+                     echo "'".$data['name_1']."',";
+                  }
+               }
+            ?>
+         ],
+         datasets: [{
+            label: 'Critical Stock',
+            backgroundColor: '#FF0000',
+            borderColor: '#708090',
+            data: [
+               <?php
+                  if (count($graph) > 0) {
+                     foreach ($graph as $data) {
+                        echo $data['total_value'].", ";
                      }
                   }
                ?>
@@ -119,7 +117,7 @@
             <?php
                if (count($graph) > 0) {
                   foreach ($graph as $data) {
-                     echo "'" . $data->nama_area . "',";
+                     echo "'".$data['name_1']."',";
                   }
                }
             ?>
@@ -132,7 +130,7 @@
                <?php
                   if (count($graph) > 0) {
                      foreach ($graph as $data) {
-                        echo $data->total_value . ", ";
+                        echo $data['total_value'].", ";
                      }
                   }
                ?>

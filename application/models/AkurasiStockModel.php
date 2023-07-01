@@ -8,46 +8,45 @@ class AkurasiStockModel extends CI_Model {
 	protected $columnOrder;
 
 	public function __construct(){
-		$this->table = 'tbl_akurasi_stock';
+		$this->table = 'm_accuracy_stocks';
 		$this->columnSearch = ['batch'];
 		$this->columnOrder = [
-            null, 
-            'cut_off',
-            'plant',
-            'sloc',
-            'type',
-            'group',
-            'pack_size',
-            'material',
-            'description',
-            'material_description',
-            'uom',
-            'batch',
-            'sled_bdd',
-            'valution_type',
-            'storage_type',
-            'storage_bin',
-            'total_stock',
-            'unposted',
-            'stock_onhand',
-            'stock_good',
-            'stock_bad',
-            'diff_qty',
-            'bin_accurasi',
-            'std_price',
-            'onhand_val',
-            'physic_val',
-            'div_val',
-            'ed_fisik',
-            'keterangan',
-            'val_good',
-            'val_bad',
-            'akurasi',
-            'type_action',
-            'kode',
-            'bulan',
-            'total_fisik',
-            'create_et',
+            null,
+            'cut_off', 
+            'plant', 
+            'sloc', 
+            'type', 
+            'group', 
+            'pack_size', 
+            'material', 
+            'desc', 
+            'uom', 
+            'batch', 
+            'sled_bbd', 
+            'val_type', 
+            'storage_type', 
+            'storage_bin', 
+            'total_stock', 
+            'unposted', 
+            'onhand_rev', 
+            'good', 
+            'bad', 
+            'diff_qty', 
+            'bin_accuracy', 
+            'std_price', 
+            'onhand_val', 
+            'physic_val', 
+            'diff_val', 
+            'ed_pisik', 
+            'ket', 
+            'val_god', 
+            'val_bad', 
+            'akurasi', 
+            'type_1', 
+            'kode', 
+            'bulan', 
+            'stock_fisik',
+            'recorded_date'
         ];
 	}
 
@@ -105,7 +104,7 @@ class AkurasiStockModel extends CI_Model {
         if($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
-        return $query->result();
+        return $query->result_array();
     }
 
     public function countFilteredData(){
