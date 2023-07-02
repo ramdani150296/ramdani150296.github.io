@@ -100,7 +100,7 @@ class Auth extends CI_Controller{
 		if ($this->form_validation->run() == false) {
 			$data['tittle'] = 'Register';
 			$this->load->view('templates/auth-header');
-			$this->load->view('auth/register', $data);
+			$this->load->view('register', $data);
 			$this->load->view('templates/auth-footer');
 		} else {
 			$data = [

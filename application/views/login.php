@@ -32,7 +32,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?=base_url('registration');?>">Create an Account!</a>
+                                        <a class="small" href="<?=base_url('auth/registration');?>">Create an Account!</a>
                                         <hr>
                                         <strong style="color:black;">Copyright &copy;2023 | Diamond Group</a>
                                     </div>
