@@ -9,7 +9,8 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                        <!--  <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1> -->
-                                        <img src="<?=base_url()?>assets/img/banner.jpg" alt="PGN" style="width:100%; height:100%">
+                                        <img src="<?=base_url()?>assets/img/profile_1.jpg" alt="jpg" style="width:50%; height:50%">
+                                        <h5><b>HALAMAN LOGIN</b></h5>
                                         <hr>
                                     </div>
                                     <?= $this->session->flashdata('message');?>
@@ -28,13 +29,13 @@
                                                     <label class="custom-control-label" for="customCheck" style="color:black;">Remember Me</label>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-success btn-user btn-block" style="color:black;">Login</button>
+                                            <button type="submit" class="btn btn-success btn-user btn-block" style="color:black;"><b>Login</b></button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?=base_url('auth/registration');?>">Create an Account!</a>
+                                        <a class="small" href="<?=base_url('auth/registration');?>"><b>Create an Account!</b></a>
                                         <hr>
-                                        <strong style="color:black;">Copyright &copy;2023 | Diamond Group</a>
+                                        <strong style="color:black;">BDD MANAGEMENT SISTEM<br>Copyright &copy;2023  </a>
                                     </div>
                                 </div>
                             </div>

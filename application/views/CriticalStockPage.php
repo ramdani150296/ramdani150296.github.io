@@ -16,11 +16,11 @@
                 <span class="fa fa-upload" aria-hidden="true"></span>
                 Upload
             </button>
-            <div class="custom-control custom-checkbox mr-sm-2 ml-3">
+            <!-- <div class="custom-control custom-checkbox mr-sm-2 ml-3">
                 <input type="checkbox" class="custom-control-input" value="true" id="fu" name="first_upload">
                 <label class="custom-control-label" for="fu">Upload Pertama</label>
                 <i class="fa fa-info-circle align-middle text-primary" role="button" id="infoUpload"></i>
-            </div>
+            </div> -->
         </div>
     </div>
 </form>
@@ -141,9 +141,7 @@
             return _doUpload;
         }());
         var swallUploadAlert = (function(){
-            var titleUpload = "Jika Upload di setujui maka, data " + 
-                                "upload yang sebelum nya akan digantikan "+
-                                "dengan data baru jika Upload Pertama dicentang, lanjutkan upload ?";
+            var titleUpload = "Apakah Anda Sudah Yakin ?";
             return Swal.fire({
                 title: 'Konfirmasi Upload',
                 text: titleUpload,

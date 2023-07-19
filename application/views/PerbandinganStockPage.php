@@ -104,7 +104,7 @@
             return _doUpload;
         }());
         var swallUploadAlert = (function(){
-            var titleUpload = "Apakah Anda Yakin!";
+            var titleUpload = "Apakah Anda Sudah Yakin ?";
             return Swal.fire({
                 title: 'Konfirmasi Upload',
                 text: titleUpload,
